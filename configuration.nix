@@ -103,6 +103,21 @@
     git
   ];
 
+  # Nvidia
+  # Reference: <https://nixos.wiki/wiki/Nvidia>
+  hardware.graphics = {
+    enable = true;
+  };
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
