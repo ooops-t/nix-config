@@ -101,7 +101,11 @@
     emacs30
     wget
     git
+    openssh
   ];
+
+  # OpenSSH
+  services.openssh.enable = true;
 
   # Nvidia
   # Reference: <https://nixos.wiki/wiki/Nvidia>
